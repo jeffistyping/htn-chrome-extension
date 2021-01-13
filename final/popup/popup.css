@@ -1,0 +1,19 @@
+body {
+  padding-top: 10px;
+  text-align: center;
+  background-color: #f0f0f0;
+}
+
+.container {
+  width: 300px;
+  padding: 10px;
+  text-align: center;
+}
+
+.notes-container {
+  text-align: center;
+}
+
+li {
+  text-align: left;
+}

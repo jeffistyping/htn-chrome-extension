@@ -1,0 +1,11 @@
+.htn-sticky-note-class {
+  z-index: 2349087294;
+  position: absolute;
+  background-color: #ffc;
+  padding: 1em;
+  width: 10em;
+  font-family: arial, sans-serif;
+  height: 10em;
+  overflow-wrap: break-word;
+  -webkit-box-shadow: 1px 1px 7px rgba(33, 33, 33, 0.7);  
+}
