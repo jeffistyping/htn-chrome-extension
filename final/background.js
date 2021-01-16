@@ -13,3 +13,5 @@ chrome.runtime.onInstalled.addListener(function() {
     chrome.declarativeContent.onPageChanged.addRules([pageConditions]);
   });
 });
+
+console.log("Hello World")
