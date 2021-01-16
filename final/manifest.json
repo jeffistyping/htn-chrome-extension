@@ -1,7 +1,7 @@
 {
-  "name": "Note Taker Done App",
+  "name": "Bookmark Windows",
   "version": "0.0.1",
-  "description": "Take Notes on web pages!",
+  "description": "Save windows or groups of tabs as ",
   "permissions": ["tabs","activeTab","declarativeContent", "storage"],
   "background": {
     "scripts": ["background.js"],
