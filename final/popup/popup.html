@@ -1,23 +1,149 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <link rel="stylesheet" href="popup.css">
-    <style>
-    </style>
-  </head>
-  <body>
-    <div id="notes-container">
-      <h6>Notes on the Page</h6>
-      <ul id="notes"></ul>
-    </div>
-    <div class="container">
-      <textarea class="form-control" id="note-value"></textarea>
-      </br>
-      <button class="btn btn-dark" id="save-note">Save Note</button>
-      <button class="btn btn-danger" id="delete-notes">Clear Notes</button>
-      <script src="popup.js"></script>
-    </div>
-  </body>
-</html>
+<head>
+    <title>Fomodoro's Popup</title>
+
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="popup.css">
+	<script src="popup.js"></script>
+</head>
+<body>
+    <div class="chromeextension">
+        <div class="overlap-group">
+          <img
+            class="the-pink-background"
+            src="https://anima-uploads.s3.amazonaws.com/projects/600399742a3222cac642c7b6/releases/60039fed62b6f340b5888257/img/chrome-extension-the-pink-background-EBE9A410-15D6-40FE-BEF7-3CB3510B4D20.png"
+          />
+          <img
+            class="pill-for-w-gth-period"
+            src="https://anima-uploads.s3.amazonaws.com/projects/600399742a3222cac642c7b6/releases/600399a8cb0773b9b8d11e74/img/chrome-extension-fill-2-DCE0101E-6D92-4E3C-BE8A-7CEC56D65F95@2x.png"
+          />
+          <img
+            class="pill-for-timer"
+            src="https://anima-uploads.s3.amazonaws.com/projects/600399742a3222cac642c7b6/releases/600399a8cb0773b9b8d11e74/img/chrome-extension-fill-3-6CB5A7C5-0445-4AE9-9911-9D3B0292E39E@2x.png"
+          />
+          <img
+            class="pill-for-pause-play"
+            src="https://anima-uploads.s3.amazonaws.com/projects/600399742a3222cac642c7b6/releases/600399a8cb0773b9b8d11e74/img/chrome-extension-fill-4-79227BE2-51A9-4B5B-85EE-E6E314060F8E@2x.png"
+          />
+          <img
+            class="pill-for-b-eak-length"
+            src="https://anima-uploads.s3.amazonaws.com/projects/600399742a3222cac642c7b6/releases/600399a8cb0773b9b8d11e74/img/chrome-extension-fill-2-DCE0101E-6D92-4E3C-BE8A-7CEC56D65F95@2x.png"
+          />
+          <img
+            class="pill-for-b-cked-sites"
+            src="https://anima-uploads.s3.amazonaws.com/projects/600399742a3222cac642c7b6/releases/600399a8cb0773b9b8d11e74/img/chrome-extension-fill-6-BDC0C8A5-3F97-4745-8C48-E6B829B2B5FB@2x.png"
+          />
+          <img
+            class="pill-for-fomodoro"
+            src="https://anima-uploads.s3.amazonaws.com/projects/600399742a3222cac642c7b6/releases/600399a8cb0773b9b8d11e74/img/chrome-extension-fill-7-6AAE33DE-80AE-4F4B-8667-F4FE5636B498@2x.png"
+          />
+          <img
+            class="fomodoro-for-chrome"
+            src="https://anima-uploads.s3.amazonaws.com/projects/600399742a3222cac642c7b6/releases/600399a8cb0773b9b8d11e74/img/chrome-extension-fill-8-177CA0B8-2BD4-4745-BA0C-B37A45E5BABE@2x.png"
+          />
+          <img
+            class="logo"
+            src="https://anima-uploads.s3.amazonaws.com/projects/600399742a3222cac642c7b6/releases/600399a8cb0773b9b8d11e74/img/chrome-extension-image-9-271B163E-6E26-4A51-9CC1-69860B3FD390@2x.png"
+          />
+          <img
+            class="settings"
+            src="https://anima-uploads.s3.amazonaws.com/projects/600399742a3222cac642c7b6/releases/60039fed62b6f340b5888257/img/chrome-extension-settings-B02861D0-9B8A-4621-9907-7A9562B05058@2x.png"
+          />
+          <img
+            class="power-button" id="power-button"
+            src="https://anima-uploads.s3.amazonaws.com/projects/600399742a3222cac642c7b6/releases/600399a8cb0773b9b8d11e74/img/chrome-extension-image-11-9CE6BB3A-3BF7-4979-9F4B-DEAFD5EFFBE7@2x.png"
+          />
+          <img
+            class="blocked-sites"
+            src="https://anima-uploads.s3.amazonaws.com/projects/600399742a3222cac642c7b6/releases/600399a8cb0773b9b8d11e74/img/chrome-extension-fill-12-87C038A4-8DAB-49D9-9BA6-33082A4E7DCF@2x.png"
+          />
+          <img
+            class="work-period-length"
+            src="https://anima-uploads.s3.amazonaws.com/projects/600399742a3222cac642c7b6/releases/600399a8cb0773b9b8d11e74/img/chrome-extension-fill-13-3B1DFD86-1BC3-4F05-A64D-D21F0BC80DF8@2x.png"
+          />
+          <img
+            class="break-length"
+            src="https://anima-uploads.s3.amazonaws.com/projects/600399742a3222cac642c7b6/releases/600399a8cb0773b9b8d11e74/img/chrome-extension-fill-14-EFFE5CC5-7534-4A3B-9F08-254CCF4927A0@2x.png"
+          />
+          <img
+            class="blocked-si-add-circle"
+            src="https://anima-uploads.s3.amazonaws.com/projects/600399742a3222cac642c7b6/releases/600399a8cb0773b9b8d11e74/img/chrome-extension-group-35-9ADE8DD2-91C5-41D3-ACDE-79F5B35A4501@2x.png"
+          />
+          <img
+            class="blocked-sites-list"
+            src="https://anima-uploads.s3.amazonaws.com/projects/600399742a3222cac642c7b6/releases/600399a8cb0773b9b8d11e74/img/chrome-extension-fill-18-A6EF2B76-9A71-4933-B44A-199235A138C8@2x.png"
+          />
+          <img
+            class="work-perio-lus-circle"
+            src="https://anima-uploads.s3.amazonaws.com/projects/600399742a3222cac642c7b6/releases/600399a8cb0773b9b8d11e74/img/chrome-extension-group-35-9ADE8DD2-91C5-41D3-ACDE-79F5B35A4501@2x.png"
+          />
+          <img
+            class="work-perio-nus-circle"
+            src="https://anima-uploads.s3.amazonaws.com/projects/600399742a3222cac642c7b6/releases/600399a8cb0773b9b8d11e74/img/chrome-extension-group-35-9ADE8DD2-91C5-41D3-ACDE-79F5B35A4501@2x.png"
+          />
+          <img
+            class="work-period-minus"
+            src="https://anima-uploads.s3.amazonaws.com/projects/600399742a3222cac642c7b6/releases/600399a8cb0773b9b8d11e74/img/chrome-extension-fill-28-AEE658A5-3C77-41EB-B8AB-45E62A0B481B@2x.png"
+          />
+          <img
+            class="work-perio-p-and-down"
+            src="https://anima-uploads.s3.amazonaws.com/projects/600399742a3222cac642c7b6/releases/600399a8cb0773b9b8d11e74/img/chrome-extension-fill-44-49B4944B-EAC0-4722-B863-D844B0006C49@2x.png"
+          />
+          <img
+            class="work-perio-t-and-left"
+            src="https://anima-uploads.s3.amazonaws.com/projects/600399742a3222cac642c7b6/releases/600399a8cb0773b9b8d11e74/img/chrome-extension-fill-28-AEE658A5-3C77-41EB-B8AB-45E62A0B481B@2x.png"
+          />
+          <img
+            class="work-period-number"
+            src="https://anima-uploads.s3.amazonaws.com/projects/600399742a3222cac642c7b6/releases/600399a8cb0773b9b8d11e74/img/chrome-extension-fill-29-029840CA-665A-4D70-9553-2E80BCEB32D8@2x.png"
+          />
+          <img
+            class="break-leng-add-circle"
+            src="https://anima-uploads.s3.amazonaws.com/projects/600399742a3222cac642c7b6/releases/600399a8cb0773b9b8d11e74/img/chrome-extension-group-35-9ADE8DD2-91C5-41D3-ACDE-79F5B35A4501@2x.png"
+          />
+          <img
+            class="break-leng-nus-circle"
+            src="https://anima-uploads.s3.amazonaws.com/projects/600399742a3222cac642c7b6/releases/600399a8cb0773b9b8d11e74/img/chrome-extension-group-35-9ADE8DD2-91C5-41D3-ACDE-79F5B35A4501@2x.png"
+          />
+          <img
+            class="break-leng-nus-button"
+            src="https://anima-uploads.s3.amazonaws.com/projects/600399742a3222cac642c7b6/releases/600399a8cb0773b9b8d11e74/img/chrome-extension-fill-28-AEE658A5-3C77-41EB-B8AB-45E62A0B481B@2x.png"
+          />
+          <img
+            class="break-leng-p-and-down"
+            src="https://anima-uploads.s3.amazonaws.com/projects/600399742a3222cac642c7b6/releases/600399a8cb0773b9b8d11e74/img/chrome-extension-fill-44-49B4944B-EAC0-4722-B863-D844B0006C49@2x.png"
+          />
+          <img
+            class="break-leng--and-right"
+            src="https://anima-uploads.s3.amazonaws.com/projects/600399742a3222cac642c7b6/releases/600399a8cb0773b9b8d11e74/img/chrome-extension-fill-28-AEE658A5-3C77-41EB-B8AB-45E62A0B481B@2x.png"
+          />
+          <img
+            class="break-length-number"
+            src="https://anima-uploads.s3.amazonaws.com/projects/600399742a3222cac642c7b6/releases/600399a8cb0773b9b8d11e74/img/chrome-extension-fill-39-C3C60F18-6EE0-4D53-9C8A-482EA21232A2@2x.png"
+          />
+          <!---->
+          <p class ="timer helvetica-normal-black-169px" id ="timer-text"> </p>
+          <img
+            class="pauseplay" id="pauseplay"
+            src="https://anima-uploads.s3.amazonaws.com/projects/600399742a3222cac642c7b6/releases/600399a8cb0773b9b8d11e74/img/chrome-extension-fill-41-24D86771-183B-4EA2-9844-5B6348747B08@2x.png"
+          />
+          <img
+            class="user"
+            src="https://anima-uploads.s3.amazonaws.com/projects/600399742a3222cac642c7b6/releases/60039fed62b6f340b5888257/img/chrome-extension-user-BC3AC868-1EB4-4A2B-B1B7-209EDDDB7676@2x.png"
+          />
+          <img
+            class="blocked-si-rrow-thing"
+            src="https://anima-uploads.s3.amazonaws.com/projects/600399742a3222cac642c7b6/releases/600399a8cb0773b9b8d11e74/img/chrome-extension-fill-43-62F087B9-F34D-429F-A2D5-3D4AAF127E20@2x.png"
+          />
+          <img
+            class="blocked-ad-p-and-down"
+            src="https://anima-uploads.s3.amazonaws.com/projects/600399742a3222cac642c7b6/releases/600399a8cb0773b9b8d11e74/img/chrome-extension-fill-44-49B4944B-EAC0-4722-B863-D844B0006C49@2x.png"
+          />
+          <img
+            class="blocked-ad--and-right"
+            src="https://anima-uploads.s3.amazonaws.com/projects/600399742a3222cac642c7b6/releases/600399a8cb0773b9b8d11e74/img/chrome-extension-fill-28-AEE658A5-3C77-41EB-B8AB-45E62A0B481B@2x.png"
+          />
+        </div>
+        <script src="popup.js"></script>
+      </div>
+</body>
