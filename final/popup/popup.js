@@ -80,6 +80,7 @@ function pauseTimer() {
     clearTimeout(refreshDisplayTimeout);
     timerOn = false;
     bgpage.pause();
+    refreshDisplay();
 }
 
 function resumeTimer()
@@ -101,4 +102,5 @@ function reset()
     clearTimeout(refreshDisplayTimeout);
     bgpage.turnOff();
     timerOn = false;
+    refreshDisplay();
 }
