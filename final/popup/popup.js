@@ -1,67 +1,104 @@
-var saveNote = document.querySelector('#save-note');
-var deleteNotes = document.querySelector('#delete-notes');
-var notesField = document.querySelector('#note-value');
+var refreshDisplayTimeout;
+var bgpage = chrome.extension.getBackgroundPage();
+var previousValues = [3, 5, 10, 30];
+var editing = false;
+var timerOn = false; // this will be toggled on/off when the play-pause button is pressed
 
-
-// Populate Notes From Page
-chrome.tabs.query({
-  active: true,
-  lastFocusedWindow: true
-}, tabs => {
-  let url = tabs[0].url;
-  let notesList = document.getElementById("notes");
-
-  // Grab the notes for the page
-  chrome.storage.local.get(url, notes => {
-    if (notes[url]) {
-      for (var i = 0; i < notes[url].length; i++) {
-        var li = document.createElement("li");
-        li.appendChild(document.createTextNode(notes[url][i]));
-        notesList.appendChild(li);
-      }
-    }
-  });
-});
-
-notesField.focus();
-
-// Delete Notes
-deleteNotes.onclick = function () {
-  chrome.tabs.query({
-    active: true,
-    lastFocusedWindow: true
-  }, tabs => {
-    let url = tabs[0].url;
-    chrome.storage.local.get(url, notes => {
-      notes[url] = []
-      chrome.storage.local.set(notes);
-      chrome.tabs.sendMessage(tabs[0].id, {notes: notes[url], action: "clear"}, _ => {
-        console.log("Cleared page");
-        location.reload();
-      });
+var pauseplay = document.querySelector('#pauseplay');
+if (pauseplay)
+    pauseplay.addEventListener("click", function() {
+        if (timerOn)
+            pauseTimer();
+        else if (bgpage.getPauseDate())
+            resumeTimer();
+        else
+            setTimer();
     });
-  });
+var powerButton = document.querySelector('#power-button'); //stopbutton -> will cause the timer to stop
+if (powerButton)
+    powerButton.addEventListener("click", function() {
+        if (timerOn)
+            reset();
+    });
+
+// !- Always returns 25 minutes. Needs to be compatible with input (use document.something)
+function getChoice() {
+
+    var num;
+    num = 25; // remove this
+
+    // add some form of input. Maybe the user can change the value in Options.Js??
+
+    return num;
 }
 
-// Save Note
-saveNote.onclick = function () {
-  chrome.tabs.query({
-    active: true,
-    currentWindow: true
-  }, function (tabs) {
-    // Something
-    let url = tabs[0].url;
-    let note = notesField.value;
-    chrome.storage.local.get(url, notes => {
-      if (notes[url])
-        notes[url].push(note);
-      else
-        notes[url] = [note];
-      chrome.tabs.sendMessage(tabs[0].id, {notes: [note], action: "add"}, _ => {
-        console.log("Added Note: '"+ note);
-      });
-      chrome.storage.local.set(notes);
-    });
-  });
-  location.reload();
-};
+function setTimer()
+{
+
+    // SET background timer for selected number
+    // HIDE settings, DISPLAY countdown
+
+    var num = getChoice();
+
+    // set timer, hide settings, display reset button
+    if(isValid(num))
+    {
+        bgpage.setAlarm(num * 60000); // converts to miliseconds
+        timerOn = true;
+        document.getElementById('timer-text').innerHTML = bgpage.getTimeLeftString();
+        refreshDisplay();
+    }
+    else
+        bgpage.error();
+}
+
+function refreshDisplay()
+{
+    if(bgpage.alarmDate) 
+    {
+        document.getElementById('timer-text').innerHTML = bgpage.getTimeLeftString();
+        refreshDisplayTimeout = setTimeout(refreshDisplay, 100);
+    }
+    else
+    {
+        reset();
+    }
+}
+
+// Returns true if 0 <= amt <= 240
+function isValid(amt)
+{
+    if(isNaN(amt) || (amt == null))
+        return false;
+    else if((amt < 0) || (amt > 240))
+        return false;
+    else
+        return true;
+}
+
+function pauseTimer() {
+    clearTimeout(refreshDisplayTimeout);
+    timerOn = false;
+    bgpage.pause();
+}
+
+function resumeTimer()
+{
+    bgpage.resume();
+    refreshDisplay();
+    timerOn = true;
+}
+
+function restartTimer()
+{
+    bgpage.restart();
+    refreshDisplay();
+    timerOn = true;
+}
+
+function reset()
+{
+    clearTimeout(refreshDisplayTimeout);
+    bgpage.turnOff();
+    timerOn = false;
+}
