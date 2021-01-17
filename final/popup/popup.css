@@ -1,19 +1,264 @@
-body {
-  padding-top: 10px;
-  text-align: center;
-  background-color: #f0f0f0;
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+* {
+  box-sizing: border-box;
+}
+.chromeextension {
+  align-items: flex-start;
+  background-color: white;
+  display: inline-flex;
+  height: 404px;
+  min-width: 323px;
+  overflow-x: hidden;
+}
+.chromeextension .blocked-ad--and-right {
+  height: 2px;
+  left: 283px;
+  position: absolute;
+  top: 423px;
+  width: 10px;
+}
+.chromeextension .blocked-ad-p-and-down {
+  height: 10px;
+  left: 287px;
+  position: absolute;
+  top: 419px;
+  width: 2px;
+}
+.chromeextension .blocked-si-add-circle {
+  height: 32px;
+  left: 272px;
+  position: absolute;
+  top: 408px;
+  width: 32px;
+}
+.chromeextension .blocked-si-rrow-thing {
+  height: 4px;
+  left: 284px;
+  position: absolute;
+  top: 219px;
+  width: 9px;
+}
+.chromeextension .blocked-sites {
+  height: 10px;
+  left: 193px;
+  position: absolute;
+  top: 216px;
+  width: 82px;
+}
+.chromeextension .blocked-sites-list {
+  height: 158px;
+  left: 190px;
+  position: absolute;
+  top: 245px;
+  width: 78px;
+}
+.chromeextension .break-leng--and-right {
+  height: 2px;
+  left: 126px;
+  position: absolute;
+  top: 421px;
+  width: 10px;
+}
+.chromeextension .break-leng-add-circle {
+  height: 32px;
+  left: 115px;
+  position: absolute;
+  top: 406px;
+  width: 32px;
+}
+.chromeextension .break-leng-nus-button {
+  height: 2px;
+  left: 34px;
+  position: absolute;
+  top: 421px;
+  width: 10px;
+}
+.chromeextension .break-leng-nus-circle {
+  height: 32px;
+  left: 23px;
+  position: absolute;
+  top: 406px;
+  width: 32px;
+}
+.chromeextension .break-leng-p-and-down {
+  height: 10px;
+  left: 130px;
+  position: absolute;
+  top: 417px;
+  width: 2px;
+}
+.chromeextension .break-length {
+  height: 12px;
+  left: 44px;
+  position: absolute;
+  top: 379px;
+  width: 78px;
+}
+.chromeextension .break-length-number {
+  height: 12px;
+  left: 80px;
+  position: absolute;
+  top: 415px;
+  width: 8px;
+}
+.chromeextension .fomodoro-for-chrome {
+  height: 11px;
+  left: 109px;
+  position: absolute;
+  top: 159px;
+  width: 138px;
+}
+.chromeextension .logo {
+  height: 30px;
+  left: 72px;
+  position: absolute;
+  top: 150px;
+  width: 30px;
+}
+.chromeextension .overlap-group {
+  height: 540px;
+  margin-left: -3px;
+  margin-top: -143px;
+  position: relative;
+  width: 327px;
+}
+.chromeextension .pauseplay {
+  height: 14px;
+  left: 124px;
+  position: absolute;
+  top: 320px;
+  width: 18px;
+}
+.chromeextension .pill-for-b-cked-sites {
+  height: 251px;
+  left: 164px;
+  position: absolute;
+  top: 204px;
+  width: 149px;
+}
+.chromeextension .pill-for-b-eak-length {
+  height: 83px;
+  left: 9px;
+  position: absolute;
+  top: 370px;
+  width: 149px;
+}
+.chromeextension .pill-for-fomodoro {
+  height: 34px;
+  left: 64px;
+  position: absolute;
+  top: 148px;
+  width: 200px;
+}
+.chromeextension .pill-for-pause-play {
+  height: 52px;
+  left: 106px;
+  position: absolute;
+  top: 303px;
+  width: 52px;
+}
+.chromeextension .pill-for-timer {
+  height: 52px;
+  left: 9px;
+  position: absolute;
+  top: 303px;
+  width: 93px;
+}
+.chromeextension .pill-for-w-gth-period {
+  height: 83px;
+  left: 10px;
+  position: absolute;
+  top: 208px;
+  width: 149px;
+}
+.chromeextension .power-button {
+  height: 60px;
+  left: 133px;
+  position: absolute;
+  top: 474px;
+  width: 60px;
+}
+.chromeextension .settings {
+  height: 16px;
+  left: 27px;
+  position: absolute;
+  top: 161px;
+  width: 16px;
 }
 
-.container {
-  width: 300px;
-  padding: 10px;
-  text-align: center;
+.chromeextension .the-pink-background {
+  height: 407px;
+  left: 0px;
+  position: absolute;
+  top: 140px;
+  width: 330px;
 }
-
-.notes-container {
-  text-align: center;
+.chromeextension .timer {
+  height: 13px;
+  left: 32px;
+  position: absolute;
+  top: 322px;
+  width: 49px;
 }
-
-li {
-  text-align: left;
+.chromeextension .user {
+  height: 16px;
+  left: 288px;
+  position: absolute;
+  top: 157px;
+  width: 16px;
+}
+.chromeextension .work-perio-lus-circle {
+  height: 32px;
+  left: 115px;
+  position: absolute;
+  top: 243px;
+  width: 32px;
+}
+.chromeextension .work-perio-nus-circle {
+  height: 32px;
+  left: 23px;
+  position: absolute;
+  top: 243px;
+  width: 32px;
+}
+.chromeextension .work-perio-p-and-down {
+  height: 10px;
+  left: 130px;
+  position: absolute;
+  top: 254px;
+  width: 2px;
+}
+.chromeextension .work-perio-t-and-left {
+  height: 2px;
+  left: 126px;
+  position: absolute;
+  top: 258px;
+  width: 10px;
+}
+.chromeextension .work-period-length {
+  height: 12px;
+  left: 26px;
+  position: absolute;
+  top: 219px;
+  width: 117px;
+}
+.chromeextension .work-period-minus {
+  height: 2px;
+  left: 34px;
+  position: absolute;
+  top: 258px;
+  width: 10px;
+}
+.chromeextension .work-period-number {
+  height: 12px;
+  left: 73px;
+  position: absolute;
+  top: 252px;
+  width: 19px;
+}
+.helvetica-normal-black-169px {
+  color: black;
+  font-family: "Helvetica", Helvetica, Arial, serif;
+  font-weight: bold;
+  font-size: 20px;
 }
